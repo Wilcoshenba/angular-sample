@@ -1,0 +1,42 @@
+
+  
+  <h5 [style.color]="newusercolor">{{"from site "+ site}} on {{titleData}}</h5><hr>
+  <!-- <h4 i18n>user list is {{2+2}}</h4>
+  <table>
+    <thead>
+  <td>S.No</td>
+  <td>User</td>
+  <td>Odd</td>
+  <td>Even</td> 
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of list; index as i; odd as o; even as e;">    
+    <td>{{i}}</td>
+    <td>{{item}}</td>
+    <td>{{o}}</td>
+    <td>{{e}}</td>
+  </tr> 
+</tbody>
+</table> -->
+  <!-- It shows what you entered<input type="text" [(ngModel)]="showtext" >{{showtext}} -->
+  <!-- <h4 [ngClass]="listClass">You are new to this site</h4>
+  <input  type="text" [disabled]=false />
+  <br>
+  <h3 class="{{isnewId}}">{{acceptance}}</h3> -->
+  <input type="checkbox"  [(ngModel)]="isNewUser">Is you are a new User
+  <div *ngIf="isNewUser; then IfBlock; else ElseBlock;">
+  </div>
+  <ng-template #IfBlock>
+  <h3 class="text-success">Create your account</h3>
+  <h4>User Name       <br><input type="text" [style.borderColor]="'green'" ></h4>
+  <h4>Password        <br><input type="password" [(ngModel)]="users.password" (input)="checkpwd(password)" [style.borderColor]="'green'">&nbsp; <span [style.color]="pwdText">{{pwdCommand}}</span></h4>
+  <h4>Confirm Password<br><input type="password" [style.borderColor]="'green'"></h4>
+  <button (click)="onClick(userName.value)">Sign Up</button>
+  </ng-template>
+  <ng-template #ElseBlock>
+  <h3 class="text-success">Log In</h3>
+  <h4>User Name<br><input type="text" #userName [style.borderColor]="'green'"  ></h4>
+  <h4>Password <br><input type="password" [style.borderColor]="'green'"></h4>
+  <h4><button (click)="login(userName.value)">Login</button></h4>
+  </ng-template>
+  
